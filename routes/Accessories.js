@@ -4,7 +4,7 @@ const { Router } = require('express');
 // Controllers
 const { 
     getAccessories,
-    getAccessoryById,
+    getAccessoryByCode,
     postAccessory,
     updateAccessoryById,
     deleteAccessoryById
@@ -16,8 +16,8 @@ const router = Router();
 // GET ACCESSORIES
 router.get('/', getAccessories);
 
-// GET ACESSORY BY ID
-router.get('/:id', getAccessoryById);
+// GET ACCESSORY BY PRODUCT CODE
+router.get('/:productCode', getAccessoryByCode);
 
 // POST ACCESSORY
 router.post('/',  postAccessory);

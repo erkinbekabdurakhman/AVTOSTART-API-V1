@@ -15,13 +15,13 @@ const getAccessories = async (req, res) => {
         res.status(500).send('Server Error');
     }
 }
-// Route GET REQUEST Endpoint /api-v1/accessories/:id
-// GET Accumulator
-const getAccessoryById =  async (req, res) => {
-    try{
-        const { id } = req.params;
+// Route GET REQUEST Endpoint /api-v1/accessories/:productCode
+// GET Accessory by Product Code
+const getAccessoryByCode =  async (req, res) => {
+    const productCode = req.params.productCode;
 
-        const accessory = await Accessory.findOne({ _id: id });
+    try{
+        const accessory = await Accessory.findOne({ productCode: productCode });
 
         if(!accessory) return res.status(404).json({ message: "Accessory Not found"});
 
@@ -123,7 +123,7 @@ const deleteAccessoryById = async (req, res) => {
 }
 module.exports = {
     getAccessories,
-    getAccessoryById,
+    getAccessoryByCode,
     postAccessory,
     updateAccessoryById,
     deleteAccessoryById

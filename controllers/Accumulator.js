@@ -14,13 +14,13 @@ const getAccumulators = async (req, res) => {
         res.status(500).send('Server Error');
     }
 }
-// Route GET REQUEST Endpoint /api-v1/accumulators/:id
+// Route GET REQUEST Endpoint /api-v1/accumulators/:productcode
 // GET Accumulator
-const getAccumulatorById =  async (req, res) => {
+const getAccumulatorByCode =  async (req, res) => {
+    const productCode  = req.params.productCode;
+    // console.log(productCode);
     try{
-        const { id } = req.params;
-
-        const accumulator = await Accumulator.findOne({ _id: id });
+        const accumulator = await Accumulator.findOne({ productCode: productCode });
 
         if(!accumulator) return res.status(404).json({ message: "Accumulator Not found"});
 
@@ -130,7 +130,7 @@ const deleteAccumulatorById = async (req, res) => {
 
 module.exports = {
     getAccumulators,
-    getAccumulatorById,
+    getAccumulatorByCode,
     postAccumulator,
     updateAccumulatorById,
     deleteAccumulatorById

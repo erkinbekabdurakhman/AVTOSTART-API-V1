@@ -25,6 +25,10 @@ const TireSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    productCode: {
+        type: String,
+        required: true
+    },
     width: {
         type: Number,
         required: true

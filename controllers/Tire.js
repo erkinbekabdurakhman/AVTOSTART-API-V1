@@ -15,13 +15,13 @@ const getTires = async (req, res) => {
         res.status(500).send('Server Error');
     }
 }
-// Route GET REQUEST Endpoint /api-v1/tires/:id
-// GET Tire
-const getTireById =  async (req, res) => {
+// Route GET REQUEST Endpoint /api-v1/tires/:productCode
+// GET Tire by Product Code
+const getTireByCode =  async (req, res) => {
+    const productCode = req.params.productCode;
+    
     try{
-        const { id } = req.params;
-
-        const tire = await Tire.findOne({ _id: id });
+        const tire = await Tire.findOne({ productCode: productCode });
 
         if(!tire) return res.status(404).json({ message: "Tire Not found"});
 
@@ -46,6 +46,7 @@ const addTire = async (req, res) => {
         imageUrl, 
         description, 
         producer,
+        productCode,
         width,
         height,
         diameter,
@@ -58,7 +59,8 @@ const addTire = async (req, res) => {
             price, 
             imageUrl, 
             description, 
-            producer, 
+            producer,
+            productCode, 
             width,
             height,
             diameter,
@@ -80,6 +82,7 @@ const updateTireById =  async (req, res) => {
         name, price,
         imageUrl,
         description, producer,
+        productCode,
         width, height,
         diameter, season } = req.body;
 
@@ -90,6 +93,7 @@ const updateTireById =  async (req, res) => {
     if(imageUrl) tireField.imageUrl = imageUrl;
     if(description) tireField.description = description;
     if(producer)  tireField.producer = producer;
+    if(productCode) tireField.productCode = productCode;
     if(width) tireField.width = width;
     if(height) tireField.height = height;
     if(diameter) tireField.diameter = diameter;
@@ -126,7 +130,7 @@ const deleteTireById = async (req, res) => {
 }
 module.exports = {
     getTires,
-    getTireById,
+    getTireByCode,
     addTire,
     updateTireById,
     deleteTireById
