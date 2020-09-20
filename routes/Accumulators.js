@@ -4,6 +4,7 @@ const { Router } = require('express');
 // Controllers
 const {
     getAccumulators,
+    getAccumulatorsByBrand,
     getAccumulatorByCode,
     postAccumulator,
     updateAccumulatorById,
@@ -15,6 +16,9 @@ const router = Router();
 
 // GET ACCUMULATORS
 router.get('/', getAccumulators);
+
+// GET ACCUMULATORS BY BRAND
+router.get('/:brand', getAccumulatorsByBrand);
 
 // GET ACCUMULATOR BY ID
 router.get('/:productCode', getAccumulatorByCode);

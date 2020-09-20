@@ -14,6 +14,23 @@ const getAccumulators = async (req, res) => {
         res.status(500).send('Server Error');
     }
 }
+
+// Route GET REQUEST Endpoint /api-v1/accumulators/:brand
+// GET Accumulators by Brand
+const getAccumulatorsByBrand = async (req, res) => {
+    const brand  = req.params.brand;
+
+    try {
+
+        const accumulators = await Accumulator.find({ producer: brand });
+
+        res.status(200).json(accumulators);
+    }
+    catch(err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+}
 // Route GET REQUEST Endpoint /api-v1/accumulators/:productcode
 // GET Accumulator
 const getAccumulatorByCode =  async (req, res) => {
@@ -130,6 +147,7 @@ const deleteAccumulatorById = async (req, res) => {
 
 module.exports = {
     getAccumulators,
+    getAccumulatorsByBrand,
     getAccumulatorByCode,
     postAccumulator,
     updateAccumulatorById,
