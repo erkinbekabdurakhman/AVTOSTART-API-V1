@@ -22,7 +22,7 @@ const getAccumulatorsByBrand = async (req, res) => {
 
     try {
 
-        const accumulators = await Accumulator.find({ producer: brand });
+        const accumulators = await Accumulator.find({ producer: brand }).sort({ date: -1 });
 
         res.status(200).json(accumulators);
     }
@@ -35,6 +35,8 @@ const getAccumulatorsByBrand = async (req, res) => {
 // GET Accumulator
 const getAccumulatorByCode =  async (req, res) => {
     const productCode  = req.params.productCode;
+    console.log(productCode);
+
     // console.log(productCode);
     try{
         const accumulator = await Accumulator.findOne({ productCode: productCode });

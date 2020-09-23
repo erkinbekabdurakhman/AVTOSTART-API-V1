@@ -21,7 +21,7 @@ router.get('/', getAccumulators);
 router.get('/:brand', getAccumulatorsByBrand);
 
 // GET ACCUMULATOR BY ID
-router.get('/:productCode', getAccumulatorByCode);
+router.get('/accumulator/:productCode', getAccumulatorByCode);
 
 // POST ACCUMULATOR
 router.post('/',  postAccumulator);

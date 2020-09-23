@@ -19,7 +19,7 @@ router.get('/', getTires);
 
 // Route GET REQUEST Endpoint /api-v1/tires/:productCode
 // GET TIRE BY PRODUCT CODE
-router.get('/:productCode', getTireByCode);
+router.get('/tire/:productCode', getTireByCode);
 
 // Route POST REQUEST Endpoint /api-v1/tires/:id
 // POST TIRE

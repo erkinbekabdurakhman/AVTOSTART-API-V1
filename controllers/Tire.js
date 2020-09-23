@@ -18,15 +18,14 @@ const getTires = async (req, res) => {
 // Route GET REQUEST Endpoint /api-v1/tires/:productCode
 // GET Tire by Product Code
 const getTireByCode =  async (req, res) => {
-    const productCode = req.params.productCode;
-    
     try{
-        const tire = await Tire.findOne({ productCode: productCode });
+        let tire = await Tire.findOne({ productCode: req.params.productCode });
 
         if(!tire) return res.status(404).json({ message: "Tire Not found"});
 
         res.status(200).json(tire);
     } catch(err){
+        console.error();
         console.error(err.message);
         res.status(500).send('Server Error');
     }
