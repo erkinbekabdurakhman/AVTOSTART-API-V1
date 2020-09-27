@@ -1,12 +1,8 @@
 const mongoose = require('mongoose');
 
-const config = require('config');
-
-const database = config.get('mongoURI');
-
 const connectDataBase = async () => {
     try {
-        await mongoose.connect(database, {
+        await mongoose.connect("mongodb://46.101.169.246:27017/autodor", {
             useNewUrlParser: true,
             useCreateIndex: true,
             useUnifiedTopology: true,
