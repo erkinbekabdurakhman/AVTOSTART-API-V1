@@ -35,7 +35,6 @@ const getAccumulatorsByBrand = async (req, res) => {
 // GET Accumulator
 const getAccumulatorByCode =  async (req, res) => {
     const productCode  = req.params.productCode;
-    console.log(productCode);
 
     // console.log(productCode);
     try{
