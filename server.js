@@ -23,8 +23,6 @@ app.use((req, res, next) => {
 })
 app.get('/', (req, res) => res.send({ msg: "Avtostart Dordoi API Documentation" }));
 
-const PORT = process.env.PORT || 5000;
-
 // Routes
 const accumulatorsRoute = require('./routes/Accumulators');
 const accessoriesRoute = require('./routes/Accessories');
@@ -37,4 +35,5 @@ app.use('/api-v1/accessories', accessoriesRoute);
 app.use('/api-v1/tires', tiresRoute);
 app.use('/api-v1/disks', disksRoute);
 
-app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+app.listen(5000, 'localhost');
+console.log('Server running at http://localhost:5000');
