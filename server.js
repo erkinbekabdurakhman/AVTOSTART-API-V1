@@ -16,9 +16,9 @@ app.use(express.json({ extended: false }));
 // Allowing All Methods
 // Requesting Content-Type
 app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*'); 
+    res.setHeader('Access-Control-Allow-Origin', 'https://autodor.kg'); 
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type');
     next();
 })
 app.get('/', (req, res) => res.send({ msg: "Avtostart Dordoi API Documentation" }));
