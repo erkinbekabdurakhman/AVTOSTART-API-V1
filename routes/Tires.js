@@ -4,6 +4,7 @@ const { Router } = require('express');
 // Controllers
 const { 
     getTires,
+    getTiresBySeason,
     getTireByCode,
     addTire,
     updateTireById,
@@ -16,6 +17,10 @@ const router = Router();
 // Route GET REQUEST Endpoint /api-v1/tires
 // GET ALL Tire
 router.get('/', getTires);
+
+// Route GET REQUEST Endpoint /api-v1/tires/:season
+// GET TIRES BY SEASON
+router.get('/:season', getTiresBySeason);
 
 // Route GET REQUEST Endpoint /api-v1/tires/:productCode
 // GET TIRE BY PRODUCT CODE
